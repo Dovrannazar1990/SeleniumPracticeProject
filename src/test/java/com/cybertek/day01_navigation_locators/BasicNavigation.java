@@ -14,8 +14,8 @@ public class BasicNavigation {
         // create ChromeDriver Object
         WebDriver driver = new ChromeDriver();
 
-        // Navigate to https://www.yahoo.com/
-        driver.get("https://www.yahoo.com/");
+        // Navigate to https://www.amazon.com/
+        driver.get("https://www.amazon.com/");
 
         /*
             - get("url")
@@ -27,5 +27,21 @@ public class BasicNavigation {
 
         // navigate().to("url")
         driver.navigate().to("https://www.google.com/");
+
+        // navigate().back()
+        driver.navigate().back();
+
+        // navigate().forward()
+        driver.navigate().forward();
+
+        driver.navigate().refresh();
+
+        // closing browser
+        /*
+            close() method will close current tab
+            quit() method will close all tabs if there is more than one
+         */
+        // driver.close();
+        // driver.quit();
     }
 }
