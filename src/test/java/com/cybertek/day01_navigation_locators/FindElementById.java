@@ -23,7 +23,8 @@ public class FindElementById {
 
         // Locate the search button and click (or submit)
         WebElement searchBtn = driver.findElement(By.id("ybar-search"));
-        searchBtn.click();
+        // searchBtn.click();
+        searchBtn.submit(); // Only work with button in the form
 
         Thread.sleep(5000);
         // Quit browser
