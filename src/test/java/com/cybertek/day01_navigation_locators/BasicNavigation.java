@@ -34,6 +34,7 @@ public class BasicNavigation {
         // navigate().forward()
         driver.navigate().forward();
 
+        // refreshing the page
         driver.navigate().refresh();
 
         // closing browser
@@ -42,6 +43,6 @@ public class BasicNavigation {
             quit() method will close all tabs if there is more than one
          */
         // driver.close();
-        // driver.quit();
+        driver.quit();
     }
 }

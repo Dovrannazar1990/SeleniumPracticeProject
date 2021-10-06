@@ -13,15 +13,16 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+<!--    This is the dependency for selenium java binding-->
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
 
+<!--        This is WebDriverManager dependency to help us set up Browser driver automatically-->
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
