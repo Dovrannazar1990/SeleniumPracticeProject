@@ -20,5 +20,12 @@ public class FindByPartialText_GetText_Method {
         // System.out.println("myLnk.getText() = " + myLnk.getText());
         String fullLinkText = myLnk.getText();
         System.out.println("fullLinkText = " + fullLinkText);
+
+        // What if I just provide partial link as letter A
+        // It will just return very first that match the criteria
+        WebElement aLink = driver.findElement(By.partialLinkText("A"));
+        System.out.println("aLink.getText() = " + aLink.getText());
+
+        driver.quit();
     }
 }
