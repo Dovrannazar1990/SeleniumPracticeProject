@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class FindById_ByName_ByLinkText {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -23,6 +23,11 @@ public class FindById_ByName_ByLinkText {
 
         WebElement loginBtn = driver.findElement(By.name("login"));
         loginBtn.click();
+
+        Thread.sleep(5000);
+
+        WebElement forgetLink = driver.findElement(By.linkText("Forgot Password?"));
+        forgetLink.click();
 
         // Quit the browser
         driver.quit();
