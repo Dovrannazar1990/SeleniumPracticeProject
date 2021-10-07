@@ -43,6 +43,7 @@ public class FindElementByTagName {
         }
 
         // Get first element with <h1> tag and get the text out of it
+        // You can also use span for this task because child element that hold same text
         WebElement firstH1TagElm = driver.findElement(By.tagName("h1"));
         System.out.println("firstH1TagElm.getText() = " + firstH1TagElm.getText());
 
