@@ -31,10 +31,11 @@ public class FindElementByCssSelector {
         WebElement clearIcon = driver.findElement(By.cssSelector("button#sbq-clear>span"));
         clearIcon.click();
 
-        // Identify the search icon using css selector
-
-
-
+        searchBox.sendKeys("XPATH");
+        // <span role="button" title="Search" class="ico-syc mag-glass"></span>
+        // Identify the search icon using css selector: span[title='Search'
+        WebElement searchIcon = driver.findElement(By.cssSelector("span[title='Search']"));
+        searchIcon.click();
 
         driver.quit();
     }
