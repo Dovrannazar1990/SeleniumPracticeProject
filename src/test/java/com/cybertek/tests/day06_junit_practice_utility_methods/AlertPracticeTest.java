@@ -46,6 +46,4 @@ public class AlertPracticeTest extends TestBase {
 
         System.out.println("END");
     }
-
-
 }
