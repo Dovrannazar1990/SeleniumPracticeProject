@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class TestBase {
 
+    // We want only subclasses of TestBase have access to this
     protected WebDriver driver;
     // Setting up all driver stuff here directly in @BeforeEach method
     @BeforeEach
