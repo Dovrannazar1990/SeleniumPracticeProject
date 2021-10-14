@@ -12,13 +12,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public abstract class TestBase {
 
-    WebDriver driver;
+    protected WebDriver driver;
     // Setting up all driver stuff here directly in @BeforeEach method
     @BeforeEach
     public void setUpWebDriver() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+        driver = WebDriverFactory.getDriver("chrome");
     }
 
     @AfterEach
