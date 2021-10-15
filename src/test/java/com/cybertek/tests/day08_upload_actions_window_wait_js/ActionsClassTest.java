@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ActionsClassTest extends TestBase {
 
@@ -57,5 +57,19 @@ public class ActionsClassTest extends TestBase {
 
     }
 
+    @Test
+    public void testDragAndDrop() {
 
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+        BrowserUtil.waitFor(2) ;
+
+        WebElement smallCircle = driver.findElement(By.id("draggable"));
+        WebElement biggerCircle = driver.findElement(By.id("droptarget"));
+
+        // dragAndDrop method of Actions class, accept 2 webElement and drop first one into second one
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(smallCircle, biggerCircle).perform();
+
+        BrowserUtil.waitFor(2);
+    }
 }
