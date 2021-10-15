@@ -61,7 +61,7 @@ public class ActionsClassTest extends TestBase {
     public void testDragAndDrop() {
 
         driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
-        BrowserUtil.waitFor(2) ;
+        BrowserUtil.waitFor(2);
 
         WebElement smallCircle = driver.findElement(By.id("draggable"));
         WebElement biggerCircle = driver.findElement(By.id("droptarget"));
@@ -71,5 +71,33 @@ public class ActionsClassTest extends TestBase {
         actions.dragAndDrop(smallCircle, biggerCircle).perform();
 
         BrowserUtil.waitFor(2);
+
+        // Verify the big circle text has changed to "You did great!"
+        assertEquals("You did great!", biggerCircle.getText());
+    }
+
+    @Test
+    public void testKeyboardAction() {
+
+        /*
+         * Navigate to https://www.google.com
+         * Hold down to shift enter text "I love selenium" YOU SHOULD SEE UPPERCASE
+         * Release the shift
+         * Enter text "I love selenium"
+         * Hold down to command on Mac, control on Windows and enter "A"
+         * Release the command or control key
+         * Then hit backspace to delete
+         */
+        driver.get("https://www.google.com");
+        // Locate searchBox using name value q
+        WebElement searchBox = driver.findElement(By.name("q"));
+        // Create Actions class instance
+        Actions actions = new Actions(driver);
+        /**
+         * keyDown method for holding down to certain modifier key like Control, SHIFT and so on
+         * keyUp method for releasing what you are holding down to
+         * sendKeys method of Actions class is for pressing key that provided
+         * pause method of Actions class is for pausing in between actions in milliseconds
+         */
     }
 }
