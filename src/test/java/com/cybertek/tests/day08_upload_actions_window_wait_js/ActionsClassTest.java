@@ -4,6 +4,7 @@ import com.cybertek.utility.BrowserUtil;
 import com.cybertek.utility.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -76,14 +77,17 @@ public class ActionsClassTest extends TestBase {
         assertEquals("You did great!", biggerCircle.getText());
     }
 
+    // As long as you can hold down to SHIFT and Type something
+    // Then release the shift and perform the action
+    // That's all we need.
     @Test
     public void testKeyboardAction() {
 
         /*
          * Navigate to https://www.google.com
-         * Hold down to shift enter text "I love selenium" YOU SHOULD SEE UPPERCASE
+         * Hold down to shift enter text "i love selenium". YOU SHOULD SEE UPPERCASE
          * Release the shift
-         * Enter text "I love selenium"
+         * Enter text "i love selenium"
          * Hold down to command on Mac, control on Windows and enter "A"
          * Release the command or control key
          * Then hit backspace to delete
@@ -98,6 +102,33 @@ public class ActionsClassTest extends TestBase {
          * keyUp method for releasing what you are holding down to
          * sendKeys method of Actions class is for pressing key that provided
          * pause method of Actions class is for pausing in between actions in milliseconds
+         */
+        // This is way more than enough
+//        actions.keyDown(Keys.SHIFT).sendKeys("i love selenium")
+//                .pause(2000).keyUp(Keys.SHIFT)
+//                .sendKeys("i love selenium").pause(2000)
+//                .keyDown(Keys.COMMAND).sendKeys("A") // command+a on Mac will select all text
+//                .perform();
+
+        // This is way more than enough to demonstrate you can take any keyboard action
+        actions.keyDown(Keys.SHIFT).sendKeys("i love selenium")
+                .pause(2000).keyUp(Keys.SHIFT)
+                .sendKeys("i love selenium").pause(2000)
+                .keyDown(Keys.COMMAND).sendKeys("A") // command+a on Mac will select all text
+                // .keyDown(Keys.CONTROL).sendKeys("A") // control+a on Windows will select all text
+                .keyUp(Keys.COMMAND).pause(2000)
+                .sendKeys(Keys.BACK_SPACE)
+                .perform();
+    }
+
+    public void testDoubleClick() {
+
+        /*
+         * Navigate here
+         * //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondblclick
+         * Double-click on paragraph with text "Double-click this paragraph to trigger a function."
+         * Then assert the new paragraph with text "Hello world" displayed right under
+         * Both of the elements are under iframe with id iframeResult
          */
     }
 }
