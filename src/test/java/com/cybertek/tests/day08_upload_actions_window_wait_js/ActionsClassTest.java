@@ -143,6 +143,22 @@ public class ActionsClassTest extends TestBase {
         // TODO: go ahead and assert the "Hello World" showed up
 
 
+    }
 
+    @Test // Right click is called context click
+    public void testRightClick() {
+        // Navigate to below url
+        driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_oncontextmenu");
+        // Locate the yellow area: css selector div[contextmenu='mymenu']
+        // First switch to the iframe
+        driver.switchTo().frame("iframeResult");
+        WebElement yellowArea = driver.findElement(By.cssSelector("div[contextmenu='mymenu']"));
+
+        // Right-click on that area using Actions class method contextClick(pass the element here)
+        Actions actions = new Actions(driver);
+        actions.contextClick(yellowArea).perform();
+
+        BrowserUtil.waitFor(1);
+        // Close the alert that showed up after
     }
 }
