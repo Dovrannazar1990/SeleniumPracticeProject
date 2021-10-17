@@ -71,7 +71,7 @@ public class ActionsClassTest extends TestBase {
         Actions actions = new Actions(driver);
         actions.dragAndDrop(smallCircle, biggerCircle).perform();
 
-        BrowserUtil.waitFor(2);
+        BrowserUtil.waitFor(3);
 
         // Verify the big circle text has changed to "You did great!"
         assertEquals("You did great!", biggerCircle.getText());
@@ -121,6 +121,7 @@ public class ActionsClassTest extends TestBase {
                 .perform();
     }
 
+    @Test
     public void testDoubleClick() {
 
         /*
@@ -130,5 +131,18 @@ public class ActionsClassTest extends TestBase {
          * Then assert the new paragraph with text "Hello world" displayed right under
          * Both of the elements are under iframe with id iframeResult
          */
+        driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondblclick");
+        BrowserUtil.waitFor(2);
+        // Both elements are under the frame, so switch into it first
+        driver.switchTo().frame("iframeResult");
+        WebElement pElm1 = driver.findElement(By.xpath("//p[.='Double-click this paragraph to trigger a function.']"));
+        // In order to double-click we will use actions class
+        Actions actions = new Actions(driver);
+        actions.doubleClick(pElm1).perform(); // This is how we double-click
+        BrowserUtil.waitFor(2);
+        // TODO: go ahead and assert the "Hello World" showed up
+
+
+
     }
 }
