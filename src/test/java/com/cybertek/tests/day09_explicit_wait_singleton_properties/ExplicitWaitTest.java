@@ -48,7 +48,7 @@ public class ExplicitWaitTest extends TestBase {
 
     @Test
     public void testByTextToBe() {
-        // 1. NalertArea = driver.findElement(By.id("alert"));avigate to http://practice.cybertekschool.com/dynamic_loading
+        // 1. Navigate to http://practice.cybertekschool.com/dynamic_loading
         driver.get("http://practice.cybertekschool.com/dynamic_loading");
         // 2. Click on Example 7
         driver.findElement(By.partialLinkText("Example 7")).click();
