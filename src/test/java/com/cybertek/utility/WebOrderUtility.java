@@ -19,4 +19,17 @@ public class WebOrderUtility {
         // Click login
         driverParam.findElement(By.id("ctl00_MainContent_login_button")).click();
     }
+
+    public static void login(WebDriver driverParam, String username, String password) {
+
+        // Below line will not work because it will open new driver each time
+        // WebDriver driver = WebDriverFactory.getDriver("chrome");
+
+        // Enter username
+        driverParam.findElement(By.id("ctl00_MainContent_username")).sendKeys(username);
+        // Enter password
+        driverParam.findElement(By.id("ctl00_MainContent_password")).sendKeys(password);
+        // Click login
+        driverParam.findElement(By.id("ctl00_MainContent_login_button")).click();
+    }
 }
