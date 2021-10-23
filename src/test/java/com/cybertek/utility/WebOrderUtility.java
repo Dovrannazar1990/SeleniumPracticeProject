@@ -56,6 +56,7 @@ public class WebOrderUtility {
         try {
             WebElement header = driveParam.findElement(By.xpath("//h2[normalize-space(.)='List of All Orders']"));
             System.out.println("Element was identified");
+            System.out.println("header.isDisplayed() = " + header.isDisplayed());
             result = true;
         } catch (NoSuchElementException e) {
             System.out.println("No such element! You are not at the right page");
