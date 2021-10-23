@@ -1,8 +1,18 @@
 package com.cybertek.tests.day09_explicit_wait_singleton_properties;
 
+import com.cybertek.utility.Driver;
 import org.junit.jupiter.api.Test;
 
 public class SingletonPractice {
+
+    @Test
+    public void testOutDriverUtility() {
+
+        Driver.getDriver();
+        Driver.getDriver();
+        Driver.getDriver();
+        Driver.getDriver();
+    }
 
     @Test
     public void testSingleton() {
