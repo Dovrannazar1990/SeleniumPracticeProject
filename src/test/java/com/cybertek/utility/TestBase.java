@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * This class is meant to be super class to provide
  * driver set up and closing browser for it's subclasses
+ *
+ * Now you can try to replace driver with
+ * Driver.getDriver() so it can be same driver anywhere where ever you use
  */
 public abstract class TestBase {
 
@@ -20,7 +23,7 @@ public abstract class TestBase {
 //        WebDriverManager.chromedriver().setup();
 //        driver = new ChromeDriver();
 //        driver.manage().window().maximize();
-        driver = WebDriverFactory.getDriver("chrome");
+        driver = Driver.getDriver(); // WebDriverFactory.getDriver("chrome");
         // This is how we can set maximum timeout for finding element
         // in this example it will wait for 10 seconds
         // if element is found in 1 second, it will just move on without finishing 10 seconds
