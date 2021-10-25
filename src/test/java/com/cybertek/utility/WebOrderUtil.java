@@ -27,6 +27,4 @@ public class WebOrderUtil {
         // Click login
         Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button")).click();
     }
-
-
 }
