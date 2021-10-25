@@ -8,10 +8,10 @@ public class SingletonPractice {
     @Test
     public void testOutDriverUtility() {
 
-        Driver.getDriver();
-        Driver.getDriver();
-        Driver.getDriver();
-        Driver.getDriver();
+        Driver.getDriver().get("https://www.google.com/");
+//        Driver.getDriver();
+//        Driver.getDriver();
+//        Driver.getDriver();
     }
 
     @Test
