@@ -3,6 +3,7 @@ package com.cybertek.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /*
  * We wanted to have a class with that only return Singleton object
@@ -24,11 +25,29 @@ public class Driver {
      */
 
     public static WebDriver getDriver() {
+        // Read the browser type you want to launch from properties file
+        String browserName = ConfigReader.read("browser");
 
         if (obj == null) {
-            WebDriverManager.chromedriver().setup();
-            obj = new ChromeDriver();
+
+            // According to browser type set up driver correctly
+            switch (browserName.toLowerCase()) {
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    obj = new ChromeDriver();
+                    break;
+
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    obj = new FirefoxDriver();
+                    break;
+                // other browsers omitted
+                default:
+                    obj = null;
+                    System.out.println("Unknown browser type!" + browserName);
+            }
             return obj;
+
         } else {
             return obj;
         }
