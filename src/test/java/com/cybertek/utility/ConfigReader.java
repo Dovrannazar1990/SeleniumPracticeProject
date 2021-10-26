@@ -4,6 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * A utility class that load the key value pair inside config.properties file
+ * into Properties object and provide single method called read to get the
+ * value out of the properties file we created
+ */
 public class ConfigReader {
 
     // Declare Properties object at class level, so it can be accessible in static method
