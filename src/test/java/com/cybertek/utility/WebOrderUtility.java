@@ -9,6 +9,12 @@ import org.openqa.selenium.WebElement;
 // IT SIMPLY DOES NOT MAKE SENSE
 public class WebOrderUtility {
 
+    /*
+     * A method for logging into Web Order practice site from login page
+     * @param driverParam we don't have access to driver as we did in Test classes,
+     *                    so we need to pass it as parameter when calling this method
+     */
+
     public static void login(WebDriver driverParam) {
 
         // Below line will not work because it will open new driver each time
@@ -41,6 +47,12 @@ public class WebOrderUtility {
         driveParam.findElement(By.id("ctl00_logout")).click();
     }
 
+    /*
+     * A method to check if we are at order page
+     * @param driverParam WebDriver instance
+     * @return true if header element is present false if not.
+     */
+
     public static boolean isAtOrderPage(WebDriver driveParam) {
         // You can also check the url
         // You can check the title if it's different
@@ -55,13 +67,15 @@ public class WebOrderUtility {
          */
         try {
             WebElement header = driveParam.findElement(By.xpath("//h2[normalize-space(.)='List of All Orders']"));
-            System.out.println("Element was identified");
             System.out.println("header.isDisplayed() = " + header.isDisplayed());
             result = true;
         } catch (NoSuchElementException e) {
-            System.out.println("No such element! You are not at the right page");
         }
         return result;
 //        System.out.println("header.isDisplayed() = " + header.isDisplayed());
     }
+
+    // So now we have Driver class that generate Single WebDriver instance
+    // We can use it anywhere here in this method
+    // Without passing the WebDriver as parameter
 }
