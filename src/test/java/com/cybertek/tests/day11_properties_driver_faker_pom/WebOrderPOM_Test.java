@@ -5,6 +5,8 @@ import com.cybertek.utility.BrowserUtil;
 import com.cybertek.utility.TestBase;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class WebOrderPOM_Test extends TestBase {
 
     @Test
@@ -17,6 +19,7 @@ public class WebOrderPOM_Test extends TestBase {
 //        loginPage.passwordField.sendKeys("test");
 //        loginPage.loginButton.click();
         loginPage.login("Tester", "test");
+        assertTrue(loginPage.loginErrorMsgPresent());
 
         BrowserUtil.waitFor(4);
     }
