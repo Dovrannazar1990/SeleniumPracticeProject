@@ -17,18 +17,40 @@ public class Driver {
     private Driver() {
     }
 
+    /**
+     * Return obj with only one WebDriver instance
+     *
+     * @return same WebDriver if exists, new one if null
+     */
+
     public static WebDriver getDriver() {
 
         if (obj == null) {
             WebDriverManager.chromedriver().setup();
             obj = new ChromeDriver();
-            System.out.println("One and only created for the first time.");
             return obj;
         } else {
-            System.out.println("You have it. Just use existing one.");
             return obj;
         }
-
     }
 
+    /**
+     * Quitting the browser and setting the value of
+     * WebDriver instance to null because you cannot reuse already quited driver
+     */
+
+    public static void closeBrowser() {
+
+        // Check if we have WebDriver instance or not
+        // Basically checking if obj is null or not
+        // If not null
+        // quit the browser
+        // Make it null, because once quit it can not be used
+
+        if (obj != null) {
+            obj.quit();
+            // So when ask for it again, it gives us not quited fresh driver
+            obj = null;
+        }
+    }
 }
