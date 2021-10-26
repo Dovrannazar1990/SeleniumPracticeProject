@@ -17,6 +17,9 @@ public class WLoginPage {
     @FindBy(css = "#ctl00_MainContent_login_button")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//span[@id='ctl00_MainContent_status']")
+    public WebElement errorMsg;
+
     // Now we need to instruct selenium to start looking for element
     // when this constructor is called
     // This is no arg constructor of this class
@@ -53,8 +56,15 @@ public class WLoginPage {
         this.userNameField.sendKeys(username);
         this.passwordField.sendKeys(password);
         this.loginButton.click();
-
     }
 
+    /**
+     * Check error message is present if wrong credentials provided
+     * loginErrorMsgPresent simple return the result of isDisplayed method call
+     */
 
+    public boolean loginErrorMsgPresent() {
+
+        return this.errorMsg.isDisplayed();
+    }
 }
