@@ -28,8 +28,5 @@ public class WLoginPage {
         // WebDriver instance and Page class instance (this) means current instance of this class.
 
         PageFactory.initElements(Driver.getDriver(), this);
-
-
     }
-
 }
