@@ -6,6 +6,7 @@ import com.cybertek.utility.TestBase;
 import com.cybertek.utility.WebOrderUtil;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,5 +58,28 @@ public class WebOrderPracticeTest extends TestBase {
         // Wrap above code into method inside WebOrderUtil
         // loginErrorMsgVisible method that return above line
         assertTrue(WebOrderUtil.loginErrorMsgVisible());
+    }
+
+    @Test
+    public void testClearInputBox() {
+
+        WebOrderUtil.openWebOrderApp();
+        WebElement usernameField = driver.findElement(By.id("ctl00_MainContent_username"));
+        usernameField.sendKeys("hfhffghfgffgfhjghj");
+        BrowserUtil.waitFor(2);
+        // usernameField.clear(); // Remove anything inside input element
+        // You can also use the action class to clear to COMMAND(CTRL)+A and Press Backspace to delete
+        // Optionally, you can run javascript code like this
+        // theInputElement.value = "";
+        BrowserUtil.waitFor(2);
+    }
+
+    @Test
+    public void demonstratingBrowserCloseIssue() {
+
+        WebOrderUtil.openWebOrderApp();
+//        Driver.getDriver().quit();
+
+        Driver.getDriver().get("https://www.google.com/");
     }
 }
