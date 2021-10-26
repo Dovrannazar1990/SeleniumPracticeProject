@@ -1,5 +1,6 @@
 package com.cybertek.pages;
 
+import com.cybertek.utility.ConfigReader;
 import com.cybertek.utility.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,4 +30,31 @@ public class WLoginPage {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+    /*
+     * Create a method to goTo
+     * Accept no param just navigate to login page
+     * Use config.properties for url
+     */
+
+    public void goTo() {
+        Driver.getDriver().navigate().to(ConfigReader.read("weborder_url"));
+    }
+
+    /**
+     * Login with parameters
+     * @param username username
+     * @param password password
+     */
+
+    public void login(String username, String password) {
+
+        // You can access directly using userNameField or
+        this.userNameField.sendKeys(username);
+        this.passwordField.sendKeys(password);
+        this.loginButton.click();
+
+    }
+
+
 }
