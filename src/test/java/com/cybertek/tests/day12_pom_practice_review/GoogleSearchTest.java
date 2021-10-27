@@ -1,6 +1,7 @@
 package com.cybertek.tests.day12_pom_practice_review;
 
 import com.cybertek.pages.GoogleHomePage;
+import com.cybertek.pages.GoogleResultPage;
 import com.cybertek.utility.BrowserUtil;
 import com.cybertek.utility.TestBase;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,10 @@ public class GoogleSearchTest extends TestBase {
         // assert the title starts with SDET JOB
         assertTrue(driver.getTitle().startsWith("SDET JOB"));
         // assertTrue(Driver.getDriver().getTitle().startsWith("SDET JOB"));
+
+        GoogleResultPage resultPage = new GoogleResultPage();
+        String resultText = resultPage.getResultCountText();
+        System.out.println("resultText = " + resultText);
 
         BrowserUtil.waitFor(4);
     }
