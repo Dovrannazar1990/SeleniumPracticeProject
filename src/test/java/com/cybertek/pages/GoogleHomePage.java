@@ -29,6 +29,7 @@ public class GoogleHomePage {
 
     /**
      * Search on google homepage
+     *
      * @param keyword keyword you want to search on google
      */
 
@@ -36,8 +37,16 @@ public class GoogleHomePage {
 
         this.searchBox.sendKeys(keyword);
         this.searchBtn.click();
-
     }
 
+    /**
+     * Check if you are at google homepage by checking the title
+     *
+     * @return true if title is Google, false if not
+     */
 
+    public boolean isAt() {
+
+        return Driver.getDriver().getTitle().equals("Google");
+    }
 }
