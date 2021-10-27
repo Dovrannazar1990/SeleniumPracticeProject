@@ -6,6 +6,7 @@ import com.cybertek.utility.BrowserUtil;
 import com.cybertek.utility.TestBase;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebOrderPOM_Test extends TestBase {
@@ -19,7 +20,7 @@ public class WebOrderPOM_Test extends TestBase {
 //        loginPage.userNameField.sendKeys("Tester");
 //        loginPage.passwordField.sendKeys("test");
 //        loginPage.loginButton.click();
-        loginPage.login("Tester", "test");
+        loginPage.login("Test", "test");
         assertTrue(loginPage.loginErrorMsgPresent());
 
         BrowserUtil.waitFor(4);
@@ -44,5 +45,12 @@ public class WebOrderPOM_Test extends TestBase {
 
         allOrderPage.unCheckAllButton.click();
         BrowserUtil.waitFor(2);
+
+        // Print out the size of all header headerCells
+        System.out.println("allOrderPage.headerCells.size() = "
+                + allOrderPage.headerCells.size());
+        assertEquals(13, allOrderPage.headerCells.size());
+
+
     }
 }
